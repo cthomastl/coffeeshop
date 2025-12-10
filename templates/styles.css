@@ -1,0 +1,217 @@
+/* --- Global Styles and Typography --- */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333; /* Dark gray text */
+    background-color: #f8f8f8; /* Light gray background */
+}
+
+a {
+    text-decoration: none;
+    color: #5C4033; /* Coffee Brown link color */
+}
+
+a:hover {
+    color: #A0522D; /* Lighter coffee color on hover */
+}
+
+h1, h2, h3 {
+    font-family: Georgia, serif;
+    color: #4A3728; /* Darker brown headers */
+}
+
+/* --- Utility Classes --- */
+.content-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 25px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.primary-button {
+    background-color: #A0522D; /* Sienna/Coffee Color */
+    color: white;
+    border: 2px solid #A0522D;
+}
+
+.primary-button:hover {
+    background-color: #8B4513; /* Darker brown for hover */
+}
+
+.secondary-button {
+    background-color: transparent;
+    color: #A0522D;
+    border: 2px solid #A0522D;
+}
+
+/* --- Header and Navigation --- */
+#main-header {
+    background-color: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logo a {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #5C4033;
+}
+
+#main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#main-nav li {
+    margin-left: 25px;
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: url('fake_coffee_beans_background.jpg') no-repeat center center/cover; /* Placeholder image */
+    height: 60vh; /* 60% of the viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+}
+
+/* --- Menu Section --- */
+#menu h2 {
+    margin-bottom: 40px;
+}
+
+.menu-categories {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.category-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    flex: 1 1 300px; /* Allows cards to grow/shrink, max width around 300px */
+    text-align: left;
+}
+
+.category-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.category-card li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+/* --- About Section --- */
+.about-us-bg {
+    background-color: #E8DCC6; /* Creamy light color */
+}
+
+.about-content {
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+}
+
+/* --- Contact Section --- */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    text-align: left;
+    flex-wrap: wrap;
+}
+
+.contact-details {
+    flex: 1 1 300px;
+}
+
+#contact-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 1 1 400px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Includes padding and border in element's total width and height */
+}
+
+.submit-button {
+    width: 100%;
+    background-color: #5C4033;
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #4A3728;
+}
+
+/* --- Footer --- */
+#main-footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+#main-footer a {
+    color: #E8DCC6; /* Light, creamy links in footer */
+}
+
+#main-footer a:hover {
+    color: white;
+}

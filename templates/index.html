@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Brew Haven Coffee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f7f3ed;
+      color: #3b3027;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: #f7f3ed;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .logo span {
+      font-size: 1.6rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-links a {
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-color: #c49a6c;
+    }
+
+    .btn-primary {
+      background-color: #3b3027;
+      color: #f7f3ed;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #2a211b;
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.5rem 3.5rem;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+      color: #2a211b;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      max-width: 480px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-highlight {
+      font-weight: bold;
+      color: #c49a6c;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-outline {
+      border-radius: 999px;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid #3b3027;
+      background-color: transparent;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      background-color: #3b3027;
+      color: #f7f3ed;
+    }
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: #7d6b5b;
+    }
+
+    .hero-image {
+      background-image: url("https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1200");
+      background-size: cover;
+      background-position: center;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      min-height: 280px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background-color: rgba(247, 243, 237, 0.9);
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background-color: rgba(59, 48, 39, 0.9);
+      color: #f7f3ed;
+      padding: 0.7rem 1rem;
+      border-radius: 16px;
+      font-size: 0.8rem;
+      max-width: 180px;
+    }
+
+    .hero-badge strong {
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-title h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+      color: #2a211b;
+    }
+
+    .section-title p {
+      font-size: 0.95rem;
+      color: #7d6b5b;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .menu-card {
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 1.3rem 1.2rem 1.2rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+    }
+
+    .menu-name {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .menu-price {
+      font-weight: bold;
+      color: #c49a6c;
+    }
+
+    .menu-desc {
+      font-size: 0.9rem;
+      color: #7d6b5b;
+      margin-bottom: 0.6rem;
+    }
+
+    .menu-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #9c846c;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      font-size: 0.98rem;
+    }
+
+    .about-highlight {
+      background-color: #f0e3d5;
+      border-left: 4px solid #c49a6c;
+      padding: 0.9rem 1rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: #5a493b;
+    }
+
+    .about-image {
+      background-image: url("https://images.pexels.com/photos/374885/pexels-photo-374885.jpeg?auto=compress&cs=tinysrgb&w=1200");
+      background-size: cover;
+      background-position: center;
+      border-radius: 20px;
+      min-height: 260px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin-bottom: 0.7rem;
+      font-size: 0.95rem;
+    }
+
+    .contact strong {
+      color: #2a211b;
+    }
+
+    .contact-hours {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      color: #7d6b5b;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      color: #958272;
+    }
+
+    @media (max-width: 820px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.7rem;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <span>☕</span> Brew Haven
+      </div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#visit">Visit</a>
+      </div>
+      <button class="btn-primary">Order Ahead</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Small batch coffee, brewed for your quiet moments.</h1>
+          <p>
+            At Brew Haven, we serve fresh, locally roasted coffee and simple pastries.
+            Whether you need a slow morning or a late-night study spot,
+            we keep the lights warm and the coffee strong.
+          </p>
+          <p class="hero-highlight">Roasted weekly. Poured daily. Loved always.</p>
+          <div class="hero-buttons">
+            <button class="btn-primary">View Menu</button>
+            <button class="btn-outline">Find Us</button>
+          </div>
+          <p class="hero-note">Open every day from 7 AM – 9 PM • Free Wi-Fi • Outlets at every table</p>
+        </div>
+        <div class="hero-image">
+          <div class="hero-tag">Freshly brewed · Since 2024</div>
+          <div class="hero-badge">
+            <strong>House Blend of the Day</strong>
+            Caramel notes, smooth finish, perfect with oat milk.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="section-title">
+        <h2>Our Coffee Menu</h2>
+        <p>Simple drinks, done well. No secret menu, just honest coffee.</p>
+      </div>
+
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div>
+            <div class="menu-header">
+              <div class="menu-name">Espresso</div>
+              <div class="menu-price">$3.00</div>
+            </div>
+            <p class="menu-desc">
+              Rich and bold double shot pulled from our house roast.
+            </p>
+          </div>
+          <span class="menu-tag">Strong · Classic</span>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="menu-header">
+              <div class="menu-name">Latte</div>
+              <div class="menu-price">$4.50</div>
+            </div>
+            <p class="menu-desc">
+              Smooth espresso with steamed milk and light foam on top.
+            </p>
+          </div>
+          <span class="menu-tag">Best seller</span>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="menu-header">
+              <div class="menu-name">Vanilla Oat Cold Brew</div>
+              <div class="menu-price">$5.25</div>
+            </div>
+            <p class="menu-desc">
+              Slow-steeped cold brew with oat milk and a touch of vanilla syrup.
+            </p>
+          </div>
+          <span class="menu-tag">Iced · Dairy-free</span>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="menu-header">
+              <div class="menu-name">Mocha</div>
+              <div class="menu-price">$4.95</div>
+            </div>
+            <p class="menu-desc">
+              Espresso, cocoa, and steamed milk topped with light whipped cream.
+            </p>
+          </div>
+          <span class="menu-tag">Sweet · Comfort</span>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="menu-header">
+              <div class="menu-name">Chai Latte</div>
+              <div class="menu-price">$4.75</div>
+            </div>
+            <p class="menu-desc">
+              Spiced black tea mixed with steamed milk for a warming drink.
+            </p>
+          </div>
+          <span class="menu-tag">Caffeine light</span>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="menu-header">
+              <div class="menu-name">House Drip Coffee</div>
+              <div class="menu-price">$2.75</div>
+            </div>
+            <p class="menu-desc">
+              Daily rotating single-origin brew, available hot or iced.
+            </p>
+          </div>
+          <span class="menu-tag">Refill discounts</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="about">
+        <div class="about-text">
+          <div class="section-title" style="text-align:left; margin-bottom:1rem;">
+            <h2>About Brew Haven</h2>
+            <p>More than a coffee shop. A quiet corner of the city.</p>
+          </div>
+          <p>
+            Brew Haven began as a small idea between friends:
+            build a space where people can slow down, read, work,
+            and connect without rush. Every detail in the shop, from the lighting
+            to the playlists, is chosen to make you feel calm and welcome.
+          </p>
+          <p>
+            We partner with local roasters who focus on fair trade beans and
+            small farms. Our menu stays intentionally simple so that we can
+            focus on quality in every cup. We also offer a small selection of baked goods
+            from neighborhood bakers, delivered fresh each morning.
+          </p>
+          <div class="about-highlight">
+            We believe good coffee should feel easy. No pressure to know the
+            perfect order, no judgment if you just want “something sweet.”
+            Tell us how you like your coffee and we will help you find it.
+          </div>
+        </div>
+        <div class="about-image"></div>
+      </div>
+    </section>
+
+    <section class="section" id="visit">
+      <div class="section-title">
+        <h2>Visit Us</h2>
+        <p>Your new favorite coffee corner is just around the block.</p>
+      </div>
+      <div class="contact">
+        <p><strong>Address:</strong> 123 Bean Street, Suite 5, Your City, ST 12345</p>
+        <p><strong>Phone:</strong> (555) 123-4567</p>
+        <p>
