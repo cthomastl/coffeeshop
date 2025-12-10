@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 
 # Create the Flask application instance
-app = Flask(__name__)
+application = Flask(__name__)
 
 # Define the route for the homepage
 @app.route('/')
